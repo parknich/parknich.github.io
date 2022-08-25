@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>A Back Alleyway</title>
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
-	<style type="text/css">
-		body {
-			background-color: black;
-		}
-
-		#pacman {
-			height: 470px;
-			width: 382px;
-			border-radius: 5px;
-			margin: 20px auto;
-		}
-
-		#shim {
-			font-family: 'Permanent Marker', cursive;
-			position: absolute;
-			visibility: hidden
-		}
-
-		h1 {
-			font-family: 'Permanent Marker', cursive;
-			text-align: center;
-			color: yellow;
-		}
-
-		body {
-			width: 342px;
-			margin: 0px auto;
-			font-family: sans-serif;
-		}
-
-		p {
-			text-decoration: none;
-			color: #0000FF;
-		}
-	</style>
-</head>
-<body>
-	<div id="shim">shim for font face</div>
-	<h1>Pac-Man</h1>
-	<p style="text-align:center;">Pacman HTML</p>
-	<div id="pacman"></div>
-
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type="text/javascript">
-		/*jslint browser: true, undef: true, eqeqeq: true, nomen: true, white: true */
+/*jslint browser: true, undef: true, eqeqeq: true, nomen: true, white: true */
 /*global window: false, document: false */
 
 /*
@@ -853,7 +803,7 @@ var PACMAN = (function () {
     
     function dialog(text) {
         ctx.fillStyle = "#FFFF00";
-        ctx.font      = "18px Calibri";
+        ctx.font      = "14px BDCartoonShoutRegular";
         var width = ctx.measureText(text).width,
             x     = ((map.width * map.blockSize) - width) / 2;        
         ctx.fillText(text, x, (map.height * 10) + 8);
@@ -950,7 +900,7 @@ var PACMAN = (function () {
         ctx.fillText("s", 10, textBase);
 
         ctx.fillStyle = "#FFFF00";
-        ctx.font      = "14px Calibri";
+        ctx.font      = "14px BDCartoonShoutRegular";
         ctx.fillText("Score: " + user.theScore(), 30, textBase);
         ctx.fillText("Level: " + level, 260, textBase);
     }
@@ -1317,20 +1267,3 @@ Object.prototype.clone = function () {
     }
     return newObj;
 };
-
-$(function(){
-  var el = document.getElementById("pacman");
-
-  if (Modernizr.canvas && Modernizr.localstorage && 
-      Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
-    window.setTimeout(function () { PACMAN.init(el, "https://raw.githubusercontent.com/parknich082/parknich082.github.io/libs/modernizr-1.5.min.js"); }, 0);
-  } else { 
-    el.innerHTML = "Sorry, needs a decent browser<br /><small>" + 
-      "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
-  }
-});
-
-
-	</script>
-</body>
-</html>
