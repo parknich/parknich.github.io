@@ -4,10 +4,16 @@
     window.RufflePlayer = window.RufflePlayer || {};
 
     window.addEventListener("DOMContentLoaded", () => {
+        player.style.width = "600px"; player.style.height = "400px";
         let ruffle = window.RufflePlayer.newest();
         let player = ruffle.createPlayer();
+        player.config = {
+            autoplay: "auto",
+            publicPath: libs/ruffle
+        };
         let container = document.getElementById("container");
         container.appendChild(player);
+        
         player.load("swf/ducklife.swf");
     });
 </script>
