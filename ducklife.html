@@ -9,8 +9,7 @@
         player.style.width = "600px"; player.style.height = "400px";
         let container = document.getElementById("container");
         container.appendChild(player);
-        
-        player.load("movie.swf").then(() => {
+        player.load("ducklife.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
