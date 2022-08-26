@@ -7,14 +7,14 @@
         player.style.width = "600px"; player.style.height = "400px";
         let ruffle = window.RufflePlayer.newest();
         let player = ruffle.createPlayer();
-        player.config = {
-            autoplay: "auto",
-            publicPath: libs/ruffle
-        };
         let container = document.getElementById("container");
         container.appendChild(player);
         
-        player.load("swf/ducklife.swf");
+        player.load("movie.swf").then(() => {
+            console.info("Ruffle successfully loaded the file");
+        }).catch((e) => {
+            console.error(`Ruffle failed to load the file: ${e}`);
+        });
     });
 </script>
 <script src="libs/ruffle/ruffle.js"></script>
