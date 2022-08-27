@@ -15,7 +15,7 @@
         let player = ruffle.createPlayer();
         let container = document.getElementById("container");
         container.appendChild(RufflePlayer);
-        player.load("ducklife.swf").then(() => {
+        player.load("swf/ducklife.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
