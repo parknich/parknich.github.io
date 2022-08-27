@@ -10,6 +10,7 @@
     window.addEventListener("DOMContentLoaded", () => {
         let ruffle = window.RufflePlayer.newest();
         let player = ruffle.createPlayer();
+        player.style.width = "600px"; player.style.height = "400px";
         let container = document.getElementById("container");
         container.appendChild(player);
         player.load("swf/ducklife.swf").then(() => {
