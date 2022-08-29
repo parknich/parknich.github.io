@@ -12,12 +12,12 @@
         let player = ruffle.createPlayer();
 player.config = {
     autoplay: "auto",
-    base: "null"
+    base: "https://github.com/parknich081/parknich082.github.io/tree/main/swf"
 };
         player.style.width = "1024"; player.style.height = "768";
         let container = document.getElementById("container");
         container.appendChild(player);
-        player.load("swf/ducklife.swf").then(() => {
+        player.load("ducklife.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
