@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<script src="libs/ruffle/ruffle.js"></script>
+<script src="../libs/ruffle/ruffle.js"></script>
 
 <div id="player"></div>
 <div id="container"></div>
@@ -17,7 +17,7 @@ player.config = {
         player.style.width = "1024"; player.style.height = "768";
         let container = document.getElementById("container");
         container.appendChild(player);
-        player.load("ducklife.swf").then(() => {
+        player.load("swf/ducklife.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
             alert("Ruffle successfully loaded the file");
         }).catch((e) => {
