@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<script src="../libs/ruffle/ruffle.js"></script>
+
+<div id="player"></div>
+<div id="container"></div>
+
+<script>
+    window.RufflePlayer = window.RufflePlayer || {};
+
+    window.addEventListener("DOMContentLoaded", () => {
+        let ruffle = window.RufflePlayer.newest();
+        let player = ruffle.createPlayer();
+player.config = {
+    autoplay: "auto",
+    base: "../"
+};
+        player.style.width = "1024"; player.style.height = "768";
+        let container = document.getElementById("container");
+        container.appendChild(player);
+        player.load("../swf/henry_stickman/btb.swf").then(() => {
+            console.info("Ruffle successfully loaded the file");
+        }).catch((e) => {
+            console.error(`Ruffle failed to load the file: ${e}`);
+        });
+    });
+</script>
