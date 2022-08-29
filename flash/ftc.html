@@ -14,10 +14,9 @@ player.config = {
     autoplay: "auto",
     base: "../"
 };
-        player.style.width = "1024"; player.style.height = "768";
         let container = document.getElementById("container");
         container.appendChild(player);
-        player.load("https://www.dropbox.com/s/8uhrh2xwpwm5pv9/fleeingthecomplexgame.swf?dl=0").then(() => {
+        player.load("../swf/henry_stickman/ftc.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
