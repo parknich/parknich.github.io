@@ -17,12 +17,10 @@ player.config = {
         player.style.width = "1024"; player.style.height = "768";
         let container = document.getElementById("container");
         container.appendChild(player);
-        player.load("swf/ducklife.swf").then(() => {
+        player.load("../swf/ducklife.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
-            alert("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
-            alert("Ruffle failed to load the file");
         });
     });
 </script>
