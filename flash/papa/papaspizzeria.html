@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<script src="../libs/ruffle/ruffle.js"></script>
-<link rel="stylesheet" href="../styles/ruffle.css">
+<script src="../../libs/ruffle/ruffle.js"></script>
+<link rel="stylesheet" href="../../styles/ruffle.css">
 
 <div id="container" class=container>
     <div id="player" class=child>
@@ -15,12 +15,12 @@
         let player = ruffle.createPlayer();
 player.config = {
     autoplay: "auto",
-    base: "../",
+    base: "../../",
     scale: "noborder"
 };
         let container = document.getElementById("container");
         container.appendChild(player);
-        player.load("../swf/Papa/papaspizzeria_v2.swf").then(() => {
+        player.load("../../swf/Papa/papaspizzeria_v2.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
