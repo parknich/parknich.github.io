@@ -26,6 +26,8 @@
     window.addEventListener("DOMContentLoaded", () => {
         let ruffle = window.RufflePlayer.newest();
         let player = ruffle.createPlayer();
+        player.style.width = "1024";
+        player.style.height="75%";
 player.config = {
     autoplay: "auto",
     base: "../",
