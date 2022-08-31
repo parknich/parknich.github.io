@@ -22,7 +22,7 @@ player.config = {
 };
         let container = document.getElementById("container");
         container.appendChild(player);
-        player.load("../swf/learntofly2.swf").then(() => {
+        player.load("../swf/learntofly/learntofly2.swf").then(() => {
             console.info("Ruffle successfully loaded the file");
         }).catch((e) => {
             console.error(`Ruffle failed to load the file: ${e}`);
