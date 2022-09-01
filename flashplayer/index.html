@@ -3,7 +3,7 @@
   <meta charset="UTF-8">
   <head>
     <title>Ruffle Dynamic Player</title>
-    <script src="libs/ruffle/ruffle.js"> </script>
+    <script src="../libs/ruffle/ruffle.js"> </script>
     <script>
       function createParam(name, value) {
         const param = document.createElement('param');
@@ -13,7 +13,7 @@
       }
       function fillGame() {
         const urlParams = new URLSearchParams(window.location.search);
-        const defaultSWF = 'swf/ruffled.swf';
+        const defaultSWF = '../swf/ruffled.swf';
         const data = urlParams.get('swf') || defaultSWF;
         const game = document.createElement('object');
         game.setAttribute('data', data);
