@@ -11,12 +11,10 @@
   <body>
     <canvas>
       <script>
-        var canvas = document.getElementsByTagName("canvas")[0];
-        canvas.width = 800;
-        canvas.height = 600;
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         canvas.beginPath();
-        canvas.rect(300, 500, 200, 100);
+        canvas.lineWidth = "6";
+        canvas.strokeStyle = "red";
+        canvas.rect(5, 5, 290, 140);
         canvas.stroke();
       </script>
     </canvas>
