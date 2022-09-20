@@ -10,8 +10,11 @@
   </head>
   <body>
     <canvas>
-      <script src="scripts/test/initialize.js" type="module"></script>
       <script>
+        var canvas = document.getElementsByTagName("canvas")[0];
+        canvas.width = 800;
+        canvas.height = 600;
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
         canvas.beginPath();
         canvas.rect(40, 40, 40, 40);
         canvas.stroke();
