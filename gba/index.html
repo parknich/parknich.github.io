@@ -274,19 +274,19 @@ function runFromParams() {
 			get: (searchParams, prop) => searchParams.get(prop),
 		});
 		if (params.has('.gba')) {
-			var rom = params.rom;
-			window.alert(rom)
-			run(rom);
-			console.log(params.keys, params.values);
+			let file = params.rom;
+			window.alert(params.rom);
+			run(params.rom);
+			console.log(params.keys, params.values, params.rom, file);
 		} else {
-			var rom = "null";
+			let file = "null";
 			window.alert("No valid rom parameters found in URL.");
 			console.log("No valid rom parameters found in URL");
-
 		}
 };
 enableDebug();
 runFromParams();
+setPixelated()
 document.addEventListener('webkitfullscreenchange', function() {
 	var canvas = document.getElementById('screen');
 	if (document.webkitIsFullScreen) {
