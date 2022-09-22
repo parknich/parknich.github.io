@@ -20,6 +20,7 @@
 <script src="js/gpio.js"></script>
 <script src="js/gba.js"></script>
 <script src="resources/xhr.js"></script>
+<script src="../libs/jquery-3.6.1.min.js"></script>
 
 <script>
 var gba;
@@ -269,10 +270,9 @@ function enableDebug() {
 		debug.postMessage('connect', document.domain || '*');
 	}
 }
+<div id="errorlog"> </div>
 function runFromParams() {
-		const params = new Proxy(new URLSearchParams(window.location.search), {
-			get: (searchParams, prop) => searchParams.get(prop),
-		});
+		var searchParams = new URLSearchParams(window.location.search);
 		if (params.has('.gba')) {
 			let file = params.rom;
 			window.alert(params.rom);
@@ -284,6 +284,9 @@ function runFromParams() {
 			console.log("No valid rom parameters found in URL");
 		}
 };
+
+jQuery.param(URLSearchParams
+
 enableDebug();
 runFromParams();
 setPixelated()
