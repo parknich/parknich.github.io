@@ -277,12 +277,15 @@ function runFromParams() {
 			var rom = params.rom;
 			window.alert(rom)
 			run(rom);
+			console.log(params.keys, params.values);
 		} else {
 			var rom = "null";
-			window.alert("No valid rom query found in URL.");
+			window.alert("No valid rom parameters found in URL.");
+			console.log("No valid rom parameters found in URL");
+
 		}
 };
-
+enableDebug();
 runFromParams();
 document.addEventListener('webkitfullscreenchange', function() {
 	var canvas = document.getElementById('screen');
