@@ -286,7 +286,7 @@ document.addEventListener('webkitfullscreenchange', function() {
 const params = new Proxy(new URLSearchParams(window.location.search), {
 	get: (searchParams, prop) => searchParams.get(prop),
   });
-  if(params.has(".gba"))	{
+  if(params.has('.gba'))	{
 	let rom = params.rom
 	window.alert("Valid rom query found in URL successfully!")
 	run(rom)
