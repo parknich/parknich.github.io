@@ -269,7 +269,21 @@ function enableDebug() {
 		debug.postMessage('connect', document.domain || '*');
 	}
 }
+function runFromParams() {
+		const params = new Proxy(new URLSearchParams(window.location.search), {
+			get: (searchParams, prop) => searchParams.get(prop),
+		});
+		if (params.has('.gba')) {
+			var rom = params.rom;
+			window.alert(rom)
+			run(rom);
+		} else {
+			var rom = "null";
+			window.alert("No valid rom query found in URL.");
+		}
+};
 
+runFromParams();
 document.addEventListener('webkitfullscreenchange', function() {
 	var canvas = document.getElementById('screen');
 	if (document.webkitIsFullScreen) {
@@ -282,19 +296,6 @@ document.addEventListener('webkitfullscreenchange', function() {
 		canvas.removeAttribute('style');
 	}
 }, false);
-	function runFromParams() {
-		const params = new Proxy(new URLSearchParams(window.location.search), {
-			get: (searchParams, prop) => searchParams.get(prop),
-		});
-		if (params.has('.gba')) {
-			var rom = params.rom;
-			window.alert(rom)
-			run(rom);
-		} else {
-			var rom = "null";
-			window.alert("No valid rom query found in URL.");
-		}
-	}
 </script>
 </head>
 <body>
