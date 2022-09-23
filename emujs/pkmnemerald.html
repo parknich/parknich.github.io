@@ -20,30 +20,10 @@
                 background-color: #222
             }
 
-            body, #box {
+            body {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-            }
-
-            #box {
-                color: #aaa;
-                height: 20em;
-                width: 30em;
-                max-width: 80%;
-                max-height: 80%;
-                background-color: #333;
-                border-radius: 0.4em;
-                border: 2px solid #555;
-                position: relative;
-                flex-direction: column;
-                transition-duration: 0.2s;
-                overflow: hidden
-            }
-
-            #box:hover, #box[drag] {
-                border-color: #38f;
-                color: #ddd
             }
 
             #input {
@@ -84,12 +64,14 @@
         </style>
     </head>
 <body>
-<div>
-    <div id='game'></div>
-</div>
 
 <script type='text/javascript'>
-
+    const div = document.createElement("div")
+    const sub = document.createElement("div")
+    const script = document.createElement("script")
+    
+    sub.id = "game"
+    div.id = "display"
     EJS_player = '#game';
     EJS_core = 'gba';
 
