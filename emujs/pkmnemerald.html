@@ -85,13 +85,9 @@
     </head>
 
     <body>
-        <div id = box>
-            <input type = file id = input>
-            Drag ROM file or click here
-        </div>
 
         <script>
-            input.onchange = async () => {
+             async () => {
                 const url = URL.createObjectURL(new Blob([input.files[0]]))
                 const parts = input.files[0].name.split(".")
 
@@ -163,9 +159,9 @@
 
                 window.EJS_player = "#game"
                 window.EJS_gameName = parts.shift()
-                window.EJS_biosUrl = "https://parknich081.github.io/emujs/data/gba_bios.bin"
-                window.EJS_gameUrl = "https://parknich081.github.io/emujs/p.gba"
-                window.EJS_core = 'gba'
+                window.EJS_biosUrl = 'https://parknich081.github.io/emujs/data/gba_bios.bin'
+                window.EJS_gameUrl = 'https://parknich081.github.io/emujs/p.gba'
+                window.EJS_core = core
                 window.EJS_pathtodata = "data/"
                 window.EJS_startOnLoaded = true;
                 window.EJS_gameID = 1;
