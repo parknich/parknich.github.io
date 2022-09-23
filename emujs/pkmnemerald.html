@@ -64,14 +64,19 @@
         </style>
     </head>
 <body>
-
+<div id="game"></div>
 <script type='text/javascript'>
     const div = document.createElement("div")
     const sub = document.createElement("div")
     const script = document.createElement("script")
-    
+
     sub.id = "game"
     div.id = "display"
+
+    div.appendChild(sub)
+    document.body.appendChild(div)
+
+    
     EJS_player = '#game';
     EJS_core = 'gba';
 
@@ -89,7 +94,7 @@
      */
     
     EJS_pathtodata = 'data/';
-    
+    document.body.appendChild(script)
 </script>
 </body>
 <script src='data/loader.js'></script>
