@@ -106,9 +106,9 @@
         <div id = box>
             <input type = file id = input>
             <script>
-                var urlfile = getUrlParameter('rom'); 
+                var urlfile = getUrlParameter('rom');
+                div.box.textContent = 'hi click here'
             </script>
-            click here lol
         </div>
 
         <script>
@@ -116,10 +116,12 @@
                 if(urlfile = null) {
                     const url = URL.createObjectURL(new Blob([input.files[0]]))
                     const parts = input.files[0].name.split(".")
+                    
                 } else {
                     const homeurl = 'https://parknich081.github.io/emujs/'
                     const url = homeurl + urlfile 
                     const parts = urlfile.name.split(".")
+                    
                 }
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
@@ -130,7 +132,7 @@
 
                     if (["z64", "n64"].includes(ext))
                         return "n64"
-
+                    
                     if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
                         return ext
 
@@ -161,7 +163,6 @@
 
                         for (const type in cores) {
                             const option = document.createElement("option")
-
                             option.value = cores[type]
                             option.textContent = type
                             select.appendChild(option)
@@ -180,6 +181,16 @@
                 const sub = document.createElement("div")
                 const script = document.createElement("script")
 
+                if (cores[type]='nds') {
+                    const coreBios = 'https://parknich081.github.io/emujs/rom/bios/bios9.bin'
+                    const coreFirmware = 'https://parknich081.github.io/emujs/bios/firmware.bin'
+                } else if (cores[type]='gba') {
+                    const coreBios = 'https://parknich081.github.io/emujs/rom/bios/gba_bios.bin'                    
+                } else if(cores[type]='null') {
+                    const coreBios = 'null'
+                    div.box.textContent = 'error 404: no core type found for file'
+                }
+
                 sub.id = "game"
                 div.id = "display"
 
@@ -189,7 +200,7 @@
 
                 window.EJS_player = "#game"
                 window.EJS_gameName = parts.shift()
-                window.EJS_biosUrl = "https://parknich081.github.io/emujs/data/gba_bios.bin"
+                window.EJS_biosUrl = coreBios
                 window.EJS_gameUrl = url
                 window.EJS_core = core
                 window.EJS_pathtodata = "data/"
