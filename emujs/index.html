@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+    <script src="../libs/jquery-3.6.1.min.js"></script>
     <head>
         <title>EmulatorJS</title>
 
@@ -85,16 +86,41 @@
     </head>
 
     <body>
+        <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+        
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+        
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+            return null;
+        };
+        </script>
         <div id = box>
             <input type = file id = input>
-            Drag ROM file or click here
+            <script>
+                var urlfile = getUrlParameter('rom'); 
+            </script>
+            click here lol
         </div>
 
         <script>
-            input.onchange = async () => {
-                const url = URL.createObjectURL(new Blob([input.files[0]]))
-                const parts = input.files[0].name.split(".")
-
+            async () => {
+                if(urlfile = null) {
+                    const url = URL.createObjectURL(new Blob([input.files[0]]))
+                    const parts = input.files[0].name.split(".")
+                } else {
+                    const homeurl = 'https://parknich081.github.io/emujs/'
+                    const url = homeurl + urlfile 
+                    const parts = urlfile.name.split(".")
+                }
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
                         return "nes"
@@ -159,7 +185,7 @@
 
                 box.remove()
                 div.appendChild(sub)
-                document.body.appendChild(div)
+                document.body.appendChild(div)s
 
                 window.EJS_player = "#game"
                 window.EJS_gameName = parts.shift()
