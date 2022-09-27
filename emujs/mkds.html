@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Super Mario 64</title>
+        <title>Mario Kart: DS</title>
 
         <link rel = icon href = docs/favicon.ico sizes = "16x16 32x32 48x48 64x64" type = image/vnd.microsoft.icon>
         <meta name = viewport content = "width = device-width, initial-scale = 1">
@@ -77,12 +77,14 @@
     div.appendChild(sub)
     document.body.appendChild(div)
 
-    
+    const biosUrl = ['https://parknich081.github.io/emujs/rom/bios/bios9.bin', 'https://parknich081.github.io/emujs/rom/bios/bios7.bin', 'https://parknich081.github.io/emujs/rom/bios/firmware.bin'];
+
     EJS_player = '#game';
-    EJS_core = 'n64';
-    EJS_gameName = "Super Mario 64";
+    EJS_core = 'melonds';
+    EJS_gameName = "Mario Kart DS";
     EJS_startOnLoaded = false;
-    EJS_gameUrl = 'https://parknich081.github.io/emujs/rom/sm64.z64';
+    EJS_biosUrl = biosUrl;
+    EJS_gameUrl = 'https://parknich081.github.io/emujs/rom/mkds.nds';
     EJS_pathtodata = 'data/';
     document.body.appendChild(script)
 </script>
