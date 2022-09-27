@@ -112,7 +112,7 @@
 
         <script>
         var urlfile = getUrlParameter('rom');
-            await (input.onChange || urlfile(!!null)); async () => { 
+        (input.onChange || urlfile(!!null)) = async () => {
                 if(urlfile = null) {
                     const url = URL.createObjectURL(new Blob([input.files[0]]))
                     const parts = input.files[0].name.split(".")
