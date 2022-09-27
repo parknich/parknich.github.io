@@ -87,31 +87,23 @@
 
     <body>
         <script>
-        var getUrlParameter = function getUrlParameter(sParam) {
-            var sPageURL = window.location.search.substring(1),
-                sURLVariables = sPageURL.split('&'),
-                sParameterName,
-                i;
-        
-            for (i = 0; i < sURLVariables.length; i++) {
-                sParameterName = sURLVariables[i].split('=');
-        
-                if (sParameterName[0] === sParam) {
-                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-                }
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null) {
+                return null;
             }
-            return null;
-        };
+            return decodeURI(results[1]) || 0;
+        }
         </script>
         <div id = box>
             <input type = file id = input>
             <script>
-                div.box.textContent = getUrlParameter("rom");
+                div.box.textContent = $.urlParam('rom');
             </script>
         </div>
 
         <script>
-        var urlfile = getUrlParameter('rom');
+        var urlfile = $.urlParam('rom');
         (input.onChange || urlfile(!!null)) = async () => {
                 if(urlfile = null) {
                     const url = URL.createObjectURL(new Blob([input.files[0]]))
