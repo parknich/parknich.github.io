@@ -106,21 +106,21 @@
         <div id = box>
             <input type = file id = input>
             <script>
-                var urlfile = getUrlParameter('rom');
                 div.box.textContent = 'hi click here'
             </script>
         </div>
 
         <script>
-            async () => {
+        var urlfile = getUrlParameter('rom');
+            await (input.onChange || urlfile(!!null)); async () => { 
                 if(urlfile = null) {
                     const url = URL.createObjectURL(new Blob([input.files[0]]))
                     const parts = input.files[0].name.split(".")
-                    
                 } else {
                     const homeurl = 'https://parknich081.github.io/emujs/'
                     const url = homeurl + urlfile 
                     const parts = urlfile.name.split(".")
+                    div.box.textContent = url
                     
                 }
                 const core = await (async (ext) => {
@@ -196,7 +196,7 @@
 
                 box.remove()
                 div.appendChild(sub)
-                document.body.appendChild(div)s
+                document.body.appendChild(div);
 
                 window.EJS_player = "#game"
                 window.EJS_gameName = parts.shift()
