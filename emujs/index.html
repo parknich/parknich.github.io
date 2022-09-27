@@ -106,7 +106,7 @@
         <div id = box>
             <input type = file id = input>
             <script>
-                div.box.textContent = 'hi click here'
+                div.box.textContent = getUrlParameter("rom");
             </script>
         </div>
 
@@ -120,7 +120,6 @@
                     const homeurl = 'https://parknich081.github.io/emujs/'
                     const url = homeurl + urlfile 
                     const parts = urlfile.name.split(".")
-                    div.box.textContent = url
                     
                 }
                 const core = await (async (ext) => {
