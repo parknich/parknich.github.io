@@ -173,10 +173,9 @@
                 const script = document.createElement("script")
 
                 if (cores[type]='nds') {
-                    const coreBios = 'https://parknich081.github.io/emujs/rom/bios/bios9.bin'
-                    const coreFirmware = 'https://parknich081.github.io/emujs/bios/firmware.bin'
+                    const coreBios = 'https://parknich.tk/emujs/bios.zip'
                 } else if (cores[type]='gba') {
-                    const coreBios = 'https://parknich081.github.io/emujs/rom/bios/gba_bios.bin'                    
+                    const coreBios = 'https://parknich.tk/emujs/rom/bios/gba_bios.bin'                    
                 } else if(cores[type]='null') {
                     const coreBios = 'null'
                     div.box.textContent = 'error 404: no core type found for file'
