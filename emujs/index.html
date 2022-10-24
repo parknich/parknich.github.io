@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <script src="../libs/jquery-3.6.1.min.js"></script>
     <head>
         <title>EmulatorJS</title>
 
@@ -84,36 +83,19 @@
             }
         </style>
     </head>
-
     <body>
-        <script>
-        $.urlParam = function(name){
-            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-            if (results==null) {
-                return null;
-            }
-            return decodeURI(results[1]) || 0;
-        }
-        </script>
         <div id = box>
             <input type = file id = input>
-            <script>
-                div.box.textContent = $.urlParam("rom");
-            </script>
-        </div>a
-
+            hi
+        </div>
+        <script src="../libs/jquery-3.6.1.min.js"></script>
+        <script src="../libs/uri.js"></script>
         <script>
-        var urlfile = $.urlParam('rom');
-        (input.onChange || urlfile(!null)) = async () => {
-                if(urlfile = null) {
-                    const url = URL.createObjectURL(new Blob([input.files[0]]))
-                    const parts = input.files[0].name.split(".")
-                } else {
-                    const homeurl = 'https://parknich081.github.io/emujs/'
-                    const url = homeurl + urlfile 
-                    const parts = urlfile.name.split(".")
-                    
-                }
+            
+            async () => {
+                const url = URL.createObjectURL(new Blob([input.files[0]]))
+                const parts = $.urlParam.results.split(".")
+
                 const core = await (async (ext) => {
                     if (["fds", "nes", "unif", "unf"].includes(ext))
                         return "nes"
@@ -123,7 +105,7 @@
 
                     if (["z64", "n64"].includes(ext))
                         return "n64"
-                    
+
                     if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
                         return ext
 
@@ -154,6 +136,7 @@
 
                         for (const type in cores) {
                             const option = document.createElement("option")
+
                             option.value = cores[type]
                             option.textContent = type
                             select.appendChild(option)
@@ -172,25 +155,16 @@
                 const sub = document.createElement("div")
                 const script = document.createElement("script")
 
-                if (cores[type]='nds') {
-                    const coreBios = 'https://parknich.tk/emujs/bios.zip'
-                } else if (cores[type]='gba') {
-                    const coreBios = 'https://parknich.tk/emujs/rom/bios/gba_bios.bin'                    
-                } else if(cores[type]='null') {
-                    const coreBios = 'null'
-                    div.box.textContent = 'error 404: no core type found for file'
-                }
-
                 sub.id = "game"
                 div.id = "display"
 
                 box.remove()
                 div.appendChild(sub)
-                document.body.appendChild(div);
+                document.body.appendChild(div)
 
                 window.EJS_player = "#game"
                 window.EJS_gameName = parts.shift()
-                window.EJS_biosUrl = coreBios
+                window.EJS_biosUrl = ""
                 window.EJS_gameUrl = url
                 window.EJS_core = core
                 window.EJS_pathtodata = "data/"
