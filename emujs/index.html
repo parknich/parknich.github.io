@@ -113,8 +113,7 @@
             async function loadEmulator() {
                 const url = $.urlParam('file')
                 const parts = $.urlParam('file').split(".")
-                console.log($.urlParam('file'))
-                console.log(parts)
+                console.log('urlParam of "file": ' + $.urlParam('file'))
                 const core = await (async (ext) => {
                     console.log(parts)
                     if (["fds", "nes", "unif", "unf"].includes(ext))
@@ -149,6 +148,10 @@
                             "Sega Saturn": "segaSaturn",
                             "Atari 7800": "atari7800",
                             "Atari 2600": "atari2600"
+                        }
+                        
+                        const bios = async (foundBios) => {
+                            if core() = 'nds'
                         }
 
                         const button = document.createElement("button")
