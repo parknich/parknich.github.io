@@ -118,16 +118,16 @@
                     console.log(parts)
                     if (["fds", "nes", "unif", "unf"].includes(ext))
                         return "nes"
-
+                    console.log(ext)
                     if (["smc", "fig", "sfc", "gd3", "gd7", "dx2", "bsx", "swc"].includes(ext))
                         return "snes"
-
+                    console.log(ext)
                     if (["z64", "n64"].includes(ext))
                         return "n64"
-
+                    console.log(ext)
                     if (["nds", "gba", "gb", "z64", "n64"].includes(ext))
                         return ext
-
+                    console.log(ext)
                     return await new Promise(resolve => {
                         const cores = {
                             "Nintendo 64": "n64",
@@ -150,9 +150,6 @@
                             "Atari 2600": "atari2600"
                         }
                         
-                        const bios = async (foundBios) => {
-                            if core() = 'nds'
-                        }
 
                         const button = document.createElement("button")
                         const select = document.createElement("select")
@@ -163,6 +160,14 @@
                             option.value = cores[type]
                             option.textContent = type
                             select.appendChild(option)
+                        }
+
+                        function bios() {
+                            if(core = 'nds' || 'melonds' || 'desmume2015') {
+                                return 'bios.zip'
+                            } else if(core = 'psx' || 'mednafen_psx' || 'mednafen_psx_hw') {
+                                return 'rom/bios/psx.zip'
+                            }
                         }
 
                         button.onclick = () => resolve(select[select.selectedIndex].value)
@@ -187,11 +192,11 @@
 
                 window.EJS_player = "#game"
                 window.EJS_gameName = parts.shift()
-                window.EJS_biosUrl = ""
+                window.EJS_biosUrl = bios
                 window.EJS_gameUrl = url
                 window.EJS_core = core
                 window.EJS_pathtodata = "data/"
-                window.EJS_startOnLoaded = true;
+                window.EJS_startOnLoaded = false;
                 
                 script.src = "data/loader.js"
                 document.body.appendChild(script)
