@@ -110,7 +110,7 @@
         </script>
         <script>
             
-            async function loadEmulator() => {
+            async function loadEmulator() {
                 const url = URL.createObjectURL(new Blob([input.files[0]]))
                 const parts = $.urlParam('rom').split(".")
                 console.log($.urlParam('rom'))
