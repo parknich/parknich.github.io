@@ -193,7 +193,7 @@
                 script.src = "data/loader.js"
                 document.body.appendChild(script)
             }
-            loadEmulator
+            loadEmulator()
             box.ondragover = () => box.setAttribute("drag", true)
             box.ondragleave = () => box.removeAttribute("drag")
         </script>
