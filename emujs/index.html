@@ -111,9 +111,9 @@
         <script>
             
             async function loadEmulator() {
-                const url = URL.createObjectURL(new Blob([input.files[0]]))
-                const parts = $.urlParam('rom').split(".")
-                console.log($.urlParam('rom'))
+                const url = $.urlParam('file')
+                const parts = $.urlParam('file').split(".")
+                console.log($.urlParam('file'))
                 console.log(parts)
                 const core = await (async (ext) => {
                     console.log(parts)
