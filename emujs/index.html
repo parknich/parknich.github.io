@@ -99,17 +99,18 @@
                 async: true
                 });
             }
-        </script>
-        <script>
-            
-            async () => {
-                $.urlParam = function(name){
+
+            $.urlParam = function(name){
                     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
                     if (results==null) {
                         return null;
                         }
                     return decodeURI(results[1]) || 0;
                     }      
+        </script>
+        <script>
+            
+            async function loadEmulator() => {
                 const url = URL.createObjectURL(new Blob([input.files[0]]))
                 const parts = $.urlParam('rom').split(".")
                 console.log($.urlParam('rom'))
@@ -192,7 +193,7 @@
                 script.src = "data/loader.js"
                 document.body.appendChild(script)
             }
-
+            loadEmulator
             box.ondragover = () => box.setAttribute("drag", true)
             box.ondragleave = () => box.removeAttribute("drag")
         </script>
