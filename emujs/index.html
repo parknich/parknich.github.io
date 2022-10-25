@@ -109,13 +109,14 @@
                         return null;
                         }
                     return decodeURI(results[1]) || 0;
-                    }
+                    }      
                 const url = URL.createObjectURL(new Blob([input.files[0]]))
                 const parts = results.split(".")
                 console.log($.urlParam)
                 console.log(results)
                 console.log(parts)
                 const core = await (async (ext) => {
+                    console.log(parts)
                     if (["fds", "nes", "unif", "unf"].includes(ext))
                         return "nes"
 
@@ -189,7 +190,10 @@
                 window.EJS_pathtodata = "data/"
                 window.EJS_startOnLoaded = true;
                 
-
+                console.log(parts)
+                console.log($.urlParam.results)
+                console.log(results)
+                console.log($.urlParam)
                 script.src = "data/loader.js"
                 document.body.appendChild(script)
             }
