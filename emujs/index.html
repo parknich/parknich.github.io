@@ -178,7 +178,9 @@
                     if (core == 'nds' || core == 'melonds' || core == 'desmume2015') {
                         return 'rom/bios/nds.zip'
                     } else if (core == 'psx' || core == 'mednafen_psx' || core == 'mednafen_psx_hw') {
-                        return 'rom/bios/psx.zip'
+                        return 'rom/bios/psx.zip' 
+                    } else if (core == 'gba' || 'mgba'){
+                        return 'rom/bios/gba_bios.bin'
                     } else {
                         return 'null'
                     }
