@@ -155,11 +155,21 @@
                         const select = document.createElement("select")
 
                         for (const type in cores) {
-                            const option = document.createElement("option")
+                            if($.urlParam('type' = null)) {
+                                const option = document.createElement("option")
 
-                            option.value = cores[type]
-                            option.textContent = type
-                            select.appendChild(option)
+                                option.value = cores[type]
+                                option.textContent = type
+                                select.appendChild(option)
+                            } else {
+                                for (const type in cores) {
+                                    if(cores.includes($.urlParam('type'))) {
+                                        cores[type] = $.urlParam('type')
+                                    } else {
+                                        console.error("ValueError: Invalid query for 'type' in 'window.location.href'")
+                                    }
+                                }
+                            }
                         }
 
                         button.onclick = () => resolve(select[select.selectedIndex].value)
