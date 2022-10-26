@@ -162,14 +162,6 @@
                             select.appendChild(option)
                         }
 
-                        function bios() {
-                            if(core = 'nds' || 'melonds' || 'desmume2015') {
-                                return 'bios.zip'
-                            } else if(core = 'psx' || 'mednafen_psx' || 'mednafen_psx_hw') {
-                                return 'rom/bios/psx.zip'
-                            }
-                        }
-
                         button.onclick = () => resolve(select[select.selectedIndex].value)
                         button.textContent = "Load game"
                         box.innerHTML = ""
@@ -182,6 +174,13 @@
                 const div = document.createElement("div")
                 const sub = document.createElement("div")
                 const script = document.createElement("script")
+                function bios() {
+                    if (core = 'nds' || 'melonds' || 'desmume2015') {
+                        return 'bios.zip'
+                    } else if (core = 'psx' || 'mednafen_psx' || 'mednafen_psx_hw') {
+                        return 'rom/bios/psx.zip'
+                    }
+                }
 
                 sub.id = "game"
                 div.id = "display"
