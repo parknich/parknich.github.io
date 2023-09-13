@@ -34,7 +34,7 @@ function fillGame(swf) {
     game.setAttribute('data', data);
     game.setAttribute('type', 'application/x-shockwave-flash');
     game.setAttribute('width', '100%');
-    game.setAttribute('height', '100%');
+    game.setAttribute('height', '90%');
     game.appendChild(createParam('wmode', 'direct'));
     game.appendChild(createParam('allowscriptaccess', 'always'));
     game.appendChild(createParam('allowfullscreen', 'true'));
