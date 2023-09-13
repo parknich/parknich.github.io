@@ -11,10 +11,10 @@
         param.setAttribute('value', value);
         return param;
       }
-      function fillGame() {
+      function fillGame(swf) {
         const urlParams = new URLSearchParams(window.location.search);
         const defaultSWF = '../swf/ruffled.swf';
-        const data = urlParams.get('swf') || defaultSWF;
+        const data = urlParams.get('swf') || swf;
         const game = document.createElement('object');
         game.setAttribute('data', data);
         game.setAttribute('type', 'application/x-shockwave-flash');
@@ -33,6 +33,46 @@
         document.addEventListener("DOMContentLoaded", fillGame)
       }
     </script>
+    <input type="file" multiple><br>
+<select></select><br>
+<textarea></textarea>
+<script>
+  const [input, select, textarea, reader] = [
+    document.querySelector("input[type=file]")
+    , document.querySelector("select")
+    , document.querySelector("textarea")
+    , new FileReader
+  ];
+  let [files, data, fn] = [
+    [],
+    [], (file, reader) => new Promise((resolve, reject) => {
+      reader.onload = () => {
+        reader.onload = reader.onerror = null;
+        resolve(reader.result);
+      }
+      reader.onerror = reject;
+      reader.readAsText(file);
+    })
+  ];
+  input.onchange = async() => {
+    select.innerHTML = "";
+    files.length = data.length = 0;
+    for (const file of input.files) {
+      const {
+        name
+      } = file;
+      const option = new Option(name, files.length);
+      files.push(file);
+      select.appendChild(option);
+      let result = await fn(file, reader);
+      data.push(result);
+    }
+  }
+
+  select.onchange = () => {
+    textarea.value = data[select.value];
+  }
+</script>
     <style>
       * {
         margin: 0;
